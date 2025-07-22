@@ -183,7 +183,10 @@ const ProfilePageNew = () => {
               <Button 
                 variant="outline" 
                 className="border-[#CCC1BE]/20 text-[#CCC1BE] hover:bg-[#2A2A2A] hover:text-[#CCC1BE]"
-                onClick={() => logout({ returnTo: window.location.origin })}
+                onClick={() => {
+                  const logoutUrl = import.meta.env.VITE_AUTH0_LOGOUT_URL || window.location.origin;
+                  logout({ returnTo: logoutUrl });
+                }}
               >
                 Sign Out
               </Button>

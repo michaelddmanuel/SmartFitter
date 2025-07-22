@@ -211,7 +211,10 @@ const ProfilePage = () => {
                       </Button>
                     </Link>
                     <button
-                      onClick={() => logout({ returnTo: window.location.origin })}
+                      onClick={() => {
+                        const logoutUrl = import.meta.env.VITE_AUTH0_LOGOUT_URL || window.location.origin;
+                        logout({ returnTo: logoutUrl });
+                      }}
                       className="inline-flex items-center justify-center px-4 py-2 border border-[#2A2A2A] rounded-md shadow-sm text-sm font-medium text-[#E5E7EB]/70 bg-transparent hover:bg-[#2A2A2A] transition-colors focus:outline-none"
                     >
                       Sign Out

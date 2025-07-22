@@ -125,7 +125,10 @@ const Navbar = () => {
                       </DropdownMenuItem>
                     )}
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} className="cursor-pointer">
+                    <DropdownMenuItem onClick={() => {
+                      const logoutUrl = (import.meta as any).env.VITE_AUTH0_LOGOUT_URL || window.location.origin;
+                      logout({ logoutParams: { returnTo: logoutUrl } });
+                    }} className="cursor-pointer">
                       Log Out
                     </DropdownMenuItem>
                   </DropdownMenuContent>
@@ -180,7 +183,8 @@ const Navbar = () => {
               isAuthenticated ? (
                 <Button
                   onClick={() => {
-                    logout({ logoutParams: { returnTo: window.location.origin } });
+                    const logoutUrl = (import.meta as any).env.VITE_AUTH0_LOGOUT_URL || window.location.origin;
+                    logout({ logoutParams: { returnTo: logoutUrl } });
                     setIsMenuOpen(false);
                   }}
                   variant="default"

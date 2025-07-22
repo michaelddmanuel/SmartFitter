@@ -257,7 +257,10 @@ const Navigation = () => {
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-[#2A2A2A]" />
                 <DropdownMenuItem 
-                  onClick={() => logout({ returnTo: window.location.origin })}
+                  onClick={() => {
+                    const logoutUrl = import.meta.env.VITE_AUTH0_LOGOUT_URL || window.location.origin;
+                    logout({ returnTo: logoutUrl });
+                  }}
                   className="text-red-400 hover:bg-[#2A2A2A] hover:text-red-400 cursor-pointer"
                 >
                   Sign out
@@ -348,7 +351,8 @@ const Navigation = () => {
                 <button
                   onClick={() => {
                     setMenuOpen(false);
-                    logout({ returnTo: window.location.origin });
+                    const logoutUrl = import.meta.env.VITE_AUTH0_LOGOUT_URL || window.location.origin;
+                    logout({ returnTo: logoutUrl });
                   }}
                   className="flex items-center w-full px-4 py-3 rounded-md font-medium text-red-400 hover:bg-[#2A2A2A]"
                 >

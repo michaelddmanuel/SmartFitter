@@ -192,7 +192,10 @@ const NavigationPublic = () => {
                     
                     <DropdownMenuItem 
                       className="text-red-400 cursor-pointer hover:bg-[#2A2A2A] focus:bg-[#2A2A2A]"
-                      onClick={() => logout({ returnTo: window.location.origin })}
+                      onClick={() => {
+                        const logoutUrl = import.meta.env.VITE_AUTH0_LOGOUT_URL || window.location.origin;
+                        logout({ returnTo: logoutUrl });
+                      }}
                     >
                       Sign out
                     </DropdownMenuItem>
@@ -317,7 +320,8 @@ const NavigationPublic = () => {
                 <button
                   onClick={() => {
                     setMenuOpen(false);
-                    logout({ returnTo: window.location.origin });
+                    const logoutUrl = import.meta.env.VITE_AUTH0_LOGOUT_URL || window.location.origin;
+                    logout({ returnTo: logoutUrl });
                   }}
                   className="flex items-center w-full px-4 py-3 rounded-md font-medium text-red-400 hover:bg-[#2A2A2A]"
                 >

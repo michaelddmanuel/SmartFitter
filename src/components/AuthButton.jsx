@@ -33,9 +33,10 @@ const AuthButton = ({ variant = 'default', size = 'default', className = '', sho
 
   // Handle logout with proper cleanup
   const handleLogout = () => {
+    const logoutUrl = import.meta.env.VITE_AUTH0_LOGOUT_URL || window.location.origin;
     logout({
       logoutParams: {
-        returnTo: window.location.origin,
+        returnTo: logoutUrl,
       }
     });
   };
