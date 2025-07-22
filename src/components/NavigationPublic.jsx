@@ -60,7 +60,8 @@ const NavigationPublic = () => {
   // Logged in navigation items
   const loggedInItems = [
     { path: '/', name: 'Landing', mainNav: true },
-    { path: '/home', name: 'Dashboard', mainNav: true },
+    { path: '/business-card', name: 'Business Card', mainNav: true },
+    { path: '/admin', name: 'Dashboard', mainNav: true },
     {
       name: 'Pages',
       mainNav: true,
@@ -184,7 +185,7 @@ const NavigationPublic = () => {
                       <NavLink to="/profile" className="w-full flex">Profile Settings</NavLink>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="cursor-pointer hover:bg-[#2A2A2A] hover:text-[#CCC1BE] focus:bg-[#2A2A2A]">
-                      <NavLink to="/home" className="w-full flex">Dashboard</NavLink>
+                      <NavLink to="/business-card" className="w-full flex">Business Card</NavLink>
                     </DropdownMenuItem>
                     
                     <DropdownMenuSeparator className="bg-[#2A2A2A]" />

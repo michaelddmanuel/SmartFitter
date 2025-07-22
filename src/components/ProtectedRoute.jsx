@@ -13,7 +13,7 @@ import { useProfile } from '../context/ProfileContext';
  */
 const ProtectedRoute = ({ 
   requiredStatuses = [], 
-  redirectPath = '/home',
+  redirectPath = '/business-card',
   requireAdmin = false,
   children 
 }) => {

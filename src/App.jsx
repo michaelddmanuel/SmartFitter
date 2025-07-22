@@ -7,7 +7,7 @@ import Layout from './components/Layout'
 // Import page components
 import LandingPage from './pages/LandingPage'
 // import LandingPage2 from './pages/LandingPage2'; // Temporarily disabled due to corruption
-import HomePage from './pages/HomePage'
+import BusinessCardPage from './pages/BusinessCardPage';
 import AboutPage from './pages/AboutPage'
 import UnauthorizedPage from './pages/UnauthorizedPage'
 import ProfileSetupPage from './pages/ProfileSetupPage'
@@ -38,9 +38,9 @@ function App() {
             <Route path="/book" element={<BookingPageNew />} />
             
             {/* Basic Protected Routes - Only require authentication */}
-            <Route path="/home" element={
+            <Route path="/business-card" element={
               <ProtectedRoute>
-                <HomePage />
+                <BusinessCardPage />
               </ProtectedRoute>
             } />
             <Route path="/profile-setup" element={
