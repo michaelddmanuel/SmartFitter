@@ -18,6 +18,8 @@ import BookingConfirmationPageNew from './pages/BookingConfirmationPageNew'
 import MemberContractPageNew from './pages/MemberContractPageNew'
 import FAQPage from './pages/FAQPage'
 import AdminDashboardPage from './pages/AdminDashboardPage'
+import MemberDashboard from './pages/MemberDashboard'
+import BookSessionPage from './pages/BookSessionPage'
 
 // Navigation is now handled by the Layout component
 
@@ -36,6 +38,7 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/book" element={<BookingPageNew />} />
+            <Route path="/book-session" element={<BookSessionPage />} />
             
             {/* Basic Protected Routes - Only require authentication */}
             <Route path="/business-card" element={
@@ -76,6 +79,13 @@ function App() {
             <Route path="/admin" element={
               <ProtectedRoute>
                 <AdminDashboardPage />
+              </ProtectedRoute>
+            } />
+            
+            {/* Member Dashboard Route */}
+            <Route path="/member-dashboard" element={
+              <ProtectedRoute>
+                <MemberDashboard />
               </ProtectedRoute>
             } />
             

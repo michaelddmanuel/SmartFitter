@@ -74,7 +74,7 @@ const Navigation = () => {
       )
     },
     { 
-      path: '/admin', 
+      path: '/member-dashboard', 
       name: 'Dashboard',
       mainNav: true,
       icon: (
@@ -252,7 +252,12 @@ const Navigation = () => {
                 </DropdownMenuItem>
                 <DropdownMenuItem className="hover:bg-[#2A2A2A] cursor-pointer">
                   <NavLink to="/member-dashboard" className="flex w-full">
-                    Dashboard
+                    Member Dashboard
+                  </NavLink>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-[#2A2A2A] cursor-pointer">
+                  <NavLink to="/admin" className="flex w-full">
+                    Admin Dashboard
                   </NavLink>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-[#2A2A2A]" />

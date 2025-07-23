@@ -24,12 +24,14 @@ const NavigationPublic = () => {
   // Refs for dropdown menu containers
   const pagesDropdownRef = useRef(null);
   const contactsDropdownRef = useRef(null);
+  const dashboardDropdownRef = useRef(null);
   
   // Close dropdowns when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (pagesDropdownRef.current && !pagesDropdownRef.current.contains(event.target) &&
-          contactsDropdownRef.current && !contactsDropdownRef.current.contains(event.target)) {
+          contactsDropdownRef.current && !contactsDropdownRef.current.contains(event.target) &&
+          dashboardDropdownRef.current && !dashboardDropdownRef.current.contains(event.target)) {
         setOpenDropdown(null);
       }
     }
@@ -61,7 +63,15 @@ const NavigationPublic = () => {
   const loggedInItems = [
     { path: '/', name: 'Landing', mainNav: true },
     { path: '/business-card', name: 'Business Card', mainNav: true },
-    { path: '/admin', name: 'Dashboard', mainNav: true },
+    {
+      name: 'Dashboard',
+      mainNav: true,
+      isDropdown: true,
+      dropdownItems: [
+        { path: '/member-dashboard', name: 'Member Dashboard' },
+        { path: '/admin', name: 'Admin Dashboard' }
+      ]
+    },
     {
       name: 'Pages',
       mainNav: true,
@@ -111,7 +121,7 @@ const NavigationPublic = () => {
             {/* Display all navigation items in the top bar */}
             {navigationItems.map((item, index) => (
               item.isDropdown ? (
-                <div key={index} className="relative" ref={item.name === 'Pages' ? pagesDropdownRef : contactsDropdownRef}>
+                <div key={index} className="relative" ref={item.name === 'Pages' ? pagesDropdownRef : item.name === 'Contacts' ? contactsDropdownRef : dashboardDropdownRef}>
                   <button
                     onClick={() => toggleDropdown(item.name)}
                     className={`px-4 py-2 rounded-md font-medium transition-colors flex items-center ${openDropdown === item.name ? "text-[#CCC1BE]" : "text-[#E5E7EB]/60 hover:text-[#CCC1BE]"}`}
@@ -186,6 +196,12 @@ const NavigationPublic = () => {
                     </DropdownMenuItem>
                     <DropdownMenuItem className="cursor-pointer hover:bg-[#2A2A2A] hover:text-[#CCC1BE] focus:bg-[#2A2A2A]">
                       <NavLink to="/business-card" className="w-full flex">Business Card</NavLink>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer hover:bg-[#2A2A2A] hover:text-[#CCC1BE] focus:bg-[#2A2A2A]">
+                      <NavLink to="/member-dashboard" className="w-full flex">Member Dashboard</NavLink>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer hover:bg-[#2A2A2A] hover:text-[#CCC1BE] focus:bg-[#2A2A2A]">
+                      <NavLink to="/admin" className="w-full flex">Admin Dashboard</NavLink>
                     </DropdownMenuItem>
                     
                     <DropdownMenuSeparator className="bg-[#2A2A2A]" />

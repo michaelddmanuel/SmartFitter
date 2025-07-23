@@ -119,6 +119,9 @@ const Navbar = () => {
                     <DropdownMenuItem asChild>
                       <Link to="/profile" className="w-full cursor-pointer">Profile</Link>
                     </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/member-dashboard" className="w-full cursor-pointer">Member Dashboard</Link>
+                    </DropdownMenuItem>
                     {profile?.is_admin && (
                       <DropdownMenuItem asChild>
                         <Link to="/admin" className="w-full cursor-pointer">Admin Dashboard</Link>
